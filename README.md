@@ -30,8 +30,8 @@
 3. 【推荐】使用 `` // `` 单行注释时，在双斜杠后方预留一个空格，再书写注释语句。如 
 	``` javascript
 	function hello(name) {
-		// 打印 hello
-		console.log("hello, " + name)
+	  // 打印 hello
+	  console.log("hello, " + name)
 	}
 	```
 4. 
