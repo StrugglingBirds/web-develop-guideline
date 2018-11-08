@@ -31,7 +31,7 @@
 	``` javascript
 	function hello(name) {
 		// 打印 hello
-		console.log("hello")
+		console.log("hello, " + name)
 	}
 	```
 4. 
