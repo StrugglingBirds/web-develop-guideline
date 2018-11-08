@@ -47,12 +47,12 @@
 2. 【强制】React 组件中如果有使用 props，则在组件定义中添加 Component.propTypes，并对字段类型、是否必输、功能等相关属性进行说明。
 
 ### （六）其他
-1. 【推荐】需要使用 require 或 import 引用非本 module 中的内容时，由上至下顺序一下遵守
+1. 【推荐】需要使用 require 或 import 引用非本 module 中的内容时，由上至下顺序以下遵守
 	1. node_modules 中，可以用包名直接引用的对象，如 `` import * as React from 'react' ``；
 	2. node_modules 中，可以用包名直接引用的方法，如 `` import { merge } from 'lodash' ``；
 	3. 项目中 export 出来，需要用相对地址来引入的对象，如 `` import HelloComponent from './HelloComponent.js' ``；
 	4. 项目中 export 出来，需要用相对地址来引入的方法，如 ``  import splitString from '../stringUtil.js' ``；
-	5. 需要引用的 css、less、sass 文件；
+	5. 需要引用的 css、less、sass 文件，如 `` import './Demo.less' ``；
 2. 【推荐】
 
 ## 二、异常处理
