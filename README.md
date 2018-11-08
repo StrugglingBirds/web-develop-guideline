@@ -9,16 +9,16 @@
 6. 【强制】如果当前组件是页面组件，最外层容器（div）中的 class 写成 ``组件名-container`` 格式，如当前页面组件为 ``Home``，则最外层样式为 ``home-container``。
 7. 【强制】如果当前组件是非页面组件，最外层容器（div）中的 class 写成 ``组件名-component`` 格式，如当前页面组件为 ``NavigationBar``，则最外层样式为 ``navigation-bar-component``。
 8. 【强制】杜绝不规范、不通用的缩写。
-9. 【强制】非类文件的直接文件夹名称，统一全部使用小写。
-10. 【强制】如果使用了设计模式，在文件名以及类名上体现出设计模式，如 RequestProxy，HumanFactory。
-11. 【强制】如果使用专门文件定义了枚举对象或者常量对象，在文件命名或者 export 出来的对象命名上予以体现，如 KeyBindEnum，ErrorCodeConstants。
+9. 【强制】非类文件的直接文件夹名称，统一全部使用小写，避免 git 在同步时不同机器上目录大小写不准确区分的问题。
+10. 【推荐】如果使用了设计模式，在文件名以及类名上体现出设计模式，如 RequestProxy，HumanFactory。
+11. 【推荐】如果使用专门文件定义了枚举对象或者常量对象，在文件命名或者 export 出来的对象命名上予以体现，如 KeyBindEnum，ErrorCodeConstants。
 
 
 ### （二）常量定义
 1. 【强制】如果当前环境支持 let、const，则不允许使用 var 定义变量。
 2. 【强制】禁止使用魔法值，统一使用有语义的常量来代替。
 3. 【强制】如果有常量类型的枚举，事先定义枚举对象，并在对象中罗列出所有的枚举常量细类。
-4. 【强制】不要在一个常量文件里面维护所有的常量，不同类别常量进行区分，如 ErrorCodeConstants，StatusCodeConstants。
+4. 【推荐】不要在一个常量文件里面维护所有的常量，不同类别常量进行区分，如 ErrorCodeConstants，StatusCodeConstants。
 5. 
 
 ### （三）控制语句
