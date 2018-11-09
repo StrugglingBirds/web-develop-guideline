@@ -21,7 +21,7 @@
 2. 【强制】禁止使用魔法值，统一使用有语义的常量来代替。
 3. 【强制】如果有常量类型的枚举，事先定义枚举对象，并在对象中罗列出所有的枚举常量细类。
 4. 【推荐】不要在一个常量文件里面维护所有的常量，不同类别常量进行区分，如 ErrorCodeConstants，StatusCodeConstants。
-5. 
+ 
 
 ### （三）控制语句
 1. 【强制】在一个 switch 语句中，每个 case 语句要么通过 break 和 return 语句来终止 case，要么添加详细注释来说明每个阶段将进行到哪个阶段为止；在 switch 语句中，最后必须添加一个 default 语句，哪怕什么都没有或者只有一个 return。
@@ -34,6 +34,7 @@
 	```
 3. 【推荐】表达异常情况的分支时，少用 if-else 语句，而是直接在 if () 中做完特殊判断。
 4. 【强制】禁止三个及以上三目运算符嵌套使用。
+
 
 ### （四）注释规约
 1. 【强制】文件、类、方法的注释使用 JSDoc 注释规范，如 `` /** 注释内容 */ ``，如果是方法，补充参数和返回值说明。
@@ -53,18 +54,20 @@
 7. 【推荐】合理处理已有冗余注释（如：为了注释而加的注释，早已过时、与代码不符的注释）。
 8. 【推荐】注释添加代码标记：如果有待办事项处，添加 TODO 并予以注释；如果是已有疑难 bug，却不能立即修复的，添加 FIXME 并予以注释。除此之外，应定期清理上述标记，清理此类标记。
 
+
 ### （五）代码风格
 1. 【强制】类文件使用 ES6 风格来定义 class，并添加内部方法，禁止使用 function. prototype 来添加原型方法。
 2. 【强制】React 组件中如果有使用 props，则在组件定义中添加 Component.propTypes，并对字段类型、是否必输、功能等相关属性进行说明。
 
+
 ### （六）其他
-1. 【推荐】需要使用 require 或 import 引用非本 module 中的内容时，由上至下顺序以下遵守
+1. 【推荐】需要使用 require 或 import 引用非本 module 中的内容时，由上至下遵守以下顺序：
 	1. node_modules 中，可以用包名直接引用的对象，如 `` import * as React from 'react' ``；
 	2. node_modules 中，可以用包名直接引用的方法，如 `` import { merge } from 'lodash' ``；
 	3. 项目中 export 出来，需要用相对地址来引入的对象，如 `` import HelloComponent from './HelloComponent.js' ``；
 	4. 项目中 export 出来，需要用相对地址来引入的方法，如 ``  import splitString from '../stringUtil.js' ``；
 	5. 需要引用的 css、less、sass 文件，如 `` import './Demo.less' ``；
-2. 【推荐】
+
 
 ## 二、异常处理
 ## 三、数据打点
