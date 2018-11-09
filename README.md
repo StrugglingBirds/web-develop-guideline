@@ -22,7 +22,7 @@
 	  SERVER_ERROR: 500
 	}
 	
-	export default ErrorCodeConstants
+	export default StatusCodeConstants
 	```
 15. 【强制】class、className 命名禁止随性、缩写的命名（如 l-g、a-b），力求语义化基础上追求简洁（如 video-icon，video-tip）。
 16. 【强制】除了 html5 中的推荐标签，禁止使用怪异标签（如模仿 ``<b>`` 标签，使用 ``<ib><bi>`` 来实现加粗、斜体样式的标签）。特殊需求使用 React 或 Vue 自带的自定义组件方式。
