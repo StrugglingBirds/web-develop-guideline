@@ -71,6 +71,10 @@
 	3. 项目中 export 出来，需要用相对地址来引入的对象，如 `` import HelloComponent from './HelloComponent.js' ``；
 	4. 项目中 export 出来，需要用相对地址来引入的方法，如 ``  import splitString from '../stringUtil.js' ``；
 	5. 需要引用的 css、less、sass 文件，如 `` import './Demo.less' ``；
+2. 【推荐】DRY（Don’t Repeat Yourself）原则，避免出现重复的代码，重复代码后期极难维护，容易出现一个因为改动却需要到处都改的情况。
+	1. React、Vue 中，如果多个页面中有重复 dom 结构的代码，抽出外部组件；
+	2. less、sass 中，如果有多个同等样式，抽出公用样式方法；
+	3. js 方法重复，对于需要多次使用的方法，根据分类，分入不同的 util 中；
 
 
 ## 二、异常处理
