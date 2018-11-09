@@ -102,30 +102,30 @@
 3. 【强制】项目目录架构，允许使用不同的目录格式，但是整体架构力求清晰，以下模式仅供参考（有 dir 则代表当前是目录）
 	```
 	-- (dir)config【打包相关配置文件存放目录】
-		-- webpack.dev.config
-		-- webpack.prod.config
-		-- 等其他配置文件
+	  -- webpack.dev.config
+	  -- webpack.prod.config
+	  -- 等其他配置文件
 	-- (dir)dist/build【webpack 打包之后输出目录】
 	-- (dir)mock【mock 数据存放目录】
 	-- (dir)node_modules
 	-- (dir)src【核心代码逻辑】
-		-- (dir)api【api 集中管理处，文件夹内可分模块对 api 归类细分】
-		-- (dir)asset/static【可选，静态资源存放（更推荐 cdn 方式）】
-		-- (dir)components【全局通用基础组件存放】
-		-- (dir)config【环境配置参数，也可后端获取，前端有此配置能做很多黑科技。】
-		-- (dir)external【手动引入的三方文件存放处，在当前目录的 index.js 处理完所有逻辑】
-		-- (dir)modules/pages/routes【此处存放每个页面，可按功能类别抽出分类文件夹】
-			-- (dir)trade【交易模块】
-				-- (dir)components【只有该模块下才会用到的组件】
-			-- (dir)center【个人中心模块】
-			-- router.js【项目路由文件，分类好了能做出很好的 code spliting】
-		-- (dir)store【可选，此处存放全局 redux、mobx 的处理，页面相关仍然与页面放同一文件夹下】
-		-- (dir)style【全局通用样式】
-			-- common.less / global.less
-			-- (dir)mixin 样式方法文件集合
-		-- (dir)util【工具类】
-		-- index.js / app.js
-		-- index.html
+	  -- (dir)api【api 集中管理处，文件夹内可分模块对 api 归类细分】
+	  -- (dir)asset/static【可选，静态资源存放（更推荐 cdn 方式）】
+	  -- (dir)components【全局通用基础组件存放】
+	  -- (dir)config【环境配置参数，也可后端获取，前端有此配置能做很多黑科技。】
+	  -- (dir)external【手动引入的三方文件存放处，在当前目录的 index.js 处理完所有逻辑】
+	  -- (dir)modules/pages/routes【此处存放每个页面，可按功能类别抽出分类文件夹】
+		  -- (dir)trade【交易模块】
+			  -- (dir)components【只有该模块下才会用到的组件】
+		  -- (dir)center【个人中心模块】
+		  -- router.js【项目路由文件，分类好了能做出很好的 code spliting】
+	  -- (dir)store【可选，此处存放全局 redux、mobx 的处理，页面相关仍然与页面放同一文件夹下】
+	  -- (dir)style【全局通用样式】
+		  -- common.less / global.less
+		  -- (dir)mixin 样式方法文件集合
+	  -- (dir)util【工具类】
+	  -- index.js / app.js
+	  -- index.html
 	-- (dir)typings【ts 文件】
 	-- package.json
 	-- 等其他项目及配置文件（.editorconfig、eslintrc、.gitignore、typings.json 等等）
