@@ -68,13 +68,14 @@
 
 
 ### （六）其他
-1. 【推荐】需要使用 require 或 import 引用非本 module 中的内容时，由上至下遵守以下顺序：
+1. 【推荐】链接资源引用，逻辑上可省略协议声明部分（`` http: 或 https: ``），但仍建议加上，如果后期有类似 electron 打包需求，此处会获取不到资源。
+2. 【推荐】需要使用 require 或 import 引用非本 module 中的内容时，由上至下遵守以下顺序：
 	1. node_modules 中，可以用包名直接引用的对象，如 `` import * as React from 'react' ``；
 	2. node_modules 中，可以用包名直接引用的方法，如 `` import { merge } from 'lodash' ``；
 	3. 项目中 export 出来，需要用相对地址来引入的对象，如 `` import HelloComponent from './HelloComponent.js' ``；
 	4. 项目中 export 出来，需要用相对地址来引入的方法，如 ``  import splitString from '../stringUtil.js' ``；
 	5. 需要引用的 css、less、sass 文件，如 `` import './Demo.less' ``；
-2. 【推荐】DRY（Don’t Repeat Yourself）原则，避免出现重复的代码，重复代码后期极难维护，容易出现一个因为改动却需要到处都改的情况。
+3. 【推荐】DRY（Don’t Repeat Yourself）原则，避免出现重复的代码，重复代码后期极难维护，容易出现一个因为改动却需要到处都改的情况。
 	1. React、Vue 中，如果多个页面中有重复 dom 结构的代码，抽出外部组件；
 	2. less、sass 中，如果有多个同等样式，抽出公用样式方法；
 	3. js 方法重复，对于需要多次使用的方法，根据分类，分入不同的 util 中；
@@ -98,12 +99,36 @@
 ## 四、工程架构
 1. 【强制】每个项目都需要提供个性化配置文件，并在版本管理中 ignore 掉，以便能适应每个人的开发习惯，也避免版本同步时配置文件的互相覆盖（如 webpack 在有 webpack.default.js 基础上，搭配 webpack.local.js 文件）。
 2. 【强制】核心、私密数据不上传至 github 或者 svn 等版本管理工具，统一使用单独文件配置（如小程序中的 AppId、AppSecret）。
-3. 【强制】项目目录架构，允许使用不同的目录，但是整体架构力求清晰，以下是部分推荐模式
+3. 【强制】项目目录架构，允许使用不同的目录格式，但是整体架构力求清晰，以下模式仅供参考（有 dir 则代表当前是目录）
 	```
-	-- config
-	-- mock
-	-- node_modules
-	-- 
+	-- (dir)config【打包相关配置文件存放目录】
+		-- webpack.dev.config
+		-- webpack.prod.config
+		-- 等其他配置文件
+	-- (dir)dist/build【webpack 打包之后输出目录】
+	-- (dir)mock【mock 数据存放目录】
+	-- (dir)node_modules
+	-- (dir)src【核心代码逻辑】
+		-- (dir)api【api 集中管理处，文件夹内可分模块对 api 归类细分】
+		-- (dir)asset/static【可选，静态资源存放（更推荐 cdn 方式）】
+		-- (dir)components【全局通用基础组件存放】
+		-- (dir)config【环境配置参数，也可后端获取，前端有此配置能做很多黑科技。】
+		-- (dir)external【手动引入的三方文件存放处，在当前目录的 index.js 处理完所有逻辑】
+		-- (dir)modules/pages/routes【此处存放每个页面，可按功能类别抽出分类文件夹】
+			-- (dir)trade【交易模块】
+				-- (dir)components【只有该模块下才会用到的组件】
+			-- (dir)center【个人中心模块】
+			-- router.js【项目路由文件，分类好了能做出很好的 code spliting】
+		-- (dir)store【可选，此处存放全局 redux、mobx 的处理，页面相关仍然与页面放同一文件夹下】
+		-- (dir)style【全局通用样式】
+			-- common.less / global.less
+			-- (dir)mixin 样式方法文件集合
+		-- (dir)util【工具类】
+		-- index.js / app.js
+		-- index.html
+	-- (dir)typings【ts 文件】
+	-- package.json
+	-- 等其他项目及配置文件（.editorconfig、eslintrc、.gitignore、typings.json 等等）
 	```
 
 
