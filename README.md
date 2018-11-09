@@ -11,9 +11,19 @@
 9. 【强制】全局样式统一添加某个固定前缀，如 `` global- ``，避免出现样式覆盖现象。
 10. 【强制】杜绝不规范、不通用的缩写。
 11. 【强制】英文命名确保英文拼写正确（可借助拼写检查插件）。
-12. 【推荐】非类文件的功能文件夹名称，统一全部使用小写，避免 git 在未设定 git 参数时同步过程中不同机器上目录大小写不准确区分的问题。
+12. 【推荐】非类文件的功能文件夹名称，统一全部使用小写，避免 git 在未设定相关参数时同步过程中，由于不同系统，而导致目录大小写区分不准确的问题。
 13. 【推荐】如果使用了设计模式，在文件名以及类名上体现出设计模式，如 RequestProxy，HumanFactory。
-14. 【推荐】如果使用专门文件定义了枚举对象或者常量对象，在文件命名或者 export 出来的对象命名上予以体现，如 KeyBindEnum，ErrorCodeConstants。
+14. 【推荐】如果使用专门文件定义了枚举对象或者常量对象，在文件命名及对象命名上予以体现。假设下面文件专门用来定义 StatusCode，则可将文件命名为 StatusCodeConstants，
+	``` JavaScript
+	const StatusCodeConstants = {
+		SUCCESS: 200,
+		REDIRECT: 300,
+		NOT_FOUND: 404,
+		SERVER_ERROR: 500
+	}
+	
+	export default ErrorCodeConstants
+	```
 15. 【强制】class、className 命名禁止随性、缩写的命名（如 l-g、a-b），力求语义化基础上追求简洁（如 video-icon，video-tip）。
 16. 【强制】除了 html5 中的推荐标签，禁止使用怪异标签（如模仿 ``<b>`` 标签，使用 ``<ib><bi>`` 来实现加粗、斜体样式的标签）。特殊需求使用 React 或 Vue 自带的自定义组件方式。
 
