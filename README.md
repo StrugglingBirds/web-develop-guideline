@@ -115,14 +115,14 @@
 	  -- (dir)config【环境配置参数，也可后端获取，前端有此配置能做很多黑科技。】
 	  -- (dir)external【手动引入的三方文件存放处，在当前目录的 index.js 处理完所有逻辑】
 	  -- (dir)modules/pages/routes【此处存放每个页面，可按功能类别抽出分类文件夹】
-		  -- (dir)trade【交易模块】
-			  -- (dir)components【只有该模块下才会用到的组件】
-		  -- (dir)center【个人中心模块】
-		  -- router.js【项目路由文件，分类好了能做出很好的 code spliting】
+	    -- (dir)trade【交易模块】
+	    -- (dir)components【只有该模块下才会用到的组件】
+	    -- (dir)center【个人中心模块】
+	    -- router.js【项目路由文件，分类好了能做出很好的 code spliting】
 	  -- (dir)store【可选，此处存放全局 redux、mobx 的处理，页面相关仍然与页面放同一文件夹下】
 	  -- (dir)style【全局通用样式】
-		  -- common.less / global.less
-		  -- (dir)mixin 样式方法文件集合
+	    -- common.less / global.less
+	    -- (dir)mixin 样式方法文件集合
 	  -- (dir)util【工具类】
 	  -- index.js / app.js
 	  -- index.html
