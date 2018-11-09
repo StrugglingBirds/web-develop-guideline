@@ -59,7 +59,7 @@
 
 
 ### （五）代码风格
-1. 【强制】基本 js 风格，公司内部（至少同一项目）统一遵循一种规范格式，如 Google JavaScript Style Guide 或 JavaScript Standard Style。
+1. 【强制】js 基本代码风格，公司内部（至少同一项目）统一遵循一种规范格式，如 Google JavaScript Style Guide 或 JavaScript Standard Style。
 2. 【推荐】尽可能使用 eslint 来做代码风格检测，尽量遵循某个业内既有规范风格。尤其不提倡过多自定义、率性而为的行为。
 3. 【强制】类文件使用 ES6 风格来定义 class，并添加内部方法，禁止使用 function. prototype 来添加原型方法。
 4. 【强制】React 组件中如果有使用 props，则在组件定义中添加 Component.propTypes，并对字段类型、是否必输、功能等相关属性进行说明。
