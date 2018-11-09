@@ -101,29 +101,28 @@
 2. 【强制】核心、私密数据不上传至 github 或者 svn 等版本管理工具，统一使用单独文件配置（如小程序中的 AppId、AppSecret）。
 3. 【强制】项目目录架构，允许使用不同的目录格式，但是整体架构力求清晰，以下模式仅供参考（有 dir 则代表当前是目录）
 	```
-	-- (dir)config【打包相关配置文件存放目录】
+	-- (dir)config【打包配置存放】
 	  -- webpack.dev.config
 	  -- webpack.prod.config
 	  -- 等其他配置文件
-	-- (dir)dist/build【webpack 打包之后输出目录】
-	-- (dir)mock【mock 数据存放目录】
+	-- (dir)dist/build
+	-- (dir)mock
 	-- (dir)node_modules
-	-- (dir)src【核心代码逻辑】
-	  -- (dir)api【api 集中管理处，文件夹内可分模块对 api 归类细分】
-	  -- (dir)asset/static【可选，静态资源存放（更推荐 cdn 方式）】
+	-- (dir)src【核心代码】
+	  -- (dir)api【api 集中管理】
+	  -- (dir)asset/static【静态资源存放（更推荐 cdn）】
 	  -- (dir)components【全局通用基础组件存放】
 	  -- (dir)config【环境配置参数，也可后端获取，前端有此配置能做很多黑科技。】
-	  -- (dir)external【手动引入的三方文件存放处，在当前目录的 index.js 处理完所有逻辑】
-	  -- (dir)modules/pages/routes【此处存放每个页面，可按功能类别抽出分类文件夹】
-	    -- (dir)trade【交易模块】
-	    -- (dir)components【只有该模块下才会用到的组件】
-	    -- (dir)center【个人中心模块】
-	    -- router.js【项目路由文件，分类好了能做出很好的 code spliting】
-	  -- (dir)store【可选，此处存放全局 redux、mobx 的处理，页面相关仍然与页面放同一文件夹下】
-	  -- (dir)style【全局通用样式】
+	  -- (dir)external【三方文件处理，当前目录的 index.js 处理完所有逻辑】
+	  -- (dir)modules/pages/routes【此处按功能类别抽出页面级组件】
+	    -- (dir)components
+	    -- (dir)module
+	    -- router.js【路由文件】
+	  -- (dir)store【redux、mobx】
+	  -- (dir)style
 	    -- common.less / global.less
-	    -- (dir)mixin 样式方法文件集合
-	  -- (dir)util【工具类】
+	    -- (dir)mixin 样式方法
+	  -- (dir)util
 	  -- index.js / app.js
 	  -- index.html
 	-- (dir)typings【ts 文件】
