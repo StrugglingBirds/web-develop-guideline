@@ -16,10 +16,10 @@
 14. 【推荐】如果使用专门文件定义了枚举对象或者常量对象，在文件命名及对象命名上予以体现。假设下面文件专门用来定义 StatusCode，则可将文件命名为 StatusCodeConstants，
 	``` JavaScript
 	const StatusCodeConstants = {
-		SUCCESS: 200,
-		REDIRECT: 300,
-		NOT_FOUND: 404,
-		SERVER_ERROR: 500
+	  SUCCESS: 200,
+	  REDIRECT: 300,
+	  NOT_FOUND: 404,
+	  SERVER_ERROR: 500
 	}
 	
 	export default ErrorCodeConstants
