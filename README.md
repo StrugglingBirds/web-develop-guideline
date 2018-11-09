@@ -125,7 +125,7 @@
 	  -- (dir)util
 	  -- index.js / app.js
 	  -- index.html
-	-- (dir)typings【ts 文件】
+	-- (dir)typings
 	-- package.json
 	-- 等其他项目及配置文件（.editorconfig、eslintrc、.gitignore、typings.json 等等）
 	```
