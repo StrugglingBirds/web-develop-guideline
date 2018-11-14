@@ -121,32 +121,32 @@
 3. 【强制】项目目录架构，允许使用不同的目录格式，但是整体架构力求清晰，以下模式仅供参考（有 dir 则代表当前是目录）
 	```
 	-- (dir)config【打包配置存放】
-	  -- webpack.dev.config
-	  -- webpack.prod.config
-	  -- 等其他配置文件
+	--|-- webpack.dev.config
+	  |-- webpack.prod.config
+	  |-- 等其他配置文件
 	-- (dir)dist/build
 	-- (dir)mock
 	-- (dir)node_modules
 	-- (dir)src【核心代码】
-	  -- (dir)api【api 集中管理】
-	  -- (dir)asset/static【静态资源存放（更推荐 cdn）】
-	  -- (dir)components【全局通用基础组件存放】
-	  -- (dir)config【环境配置参数，也可后端获取，前端有此配置能做很多黑科技。】
-	  -- (dir)external【三方文件处理，当前目录的 index.js 处理完所有逻辑】
-	  -- (dir)modules/pages/routes【此处按功能类别抽出页面级组件】
-	    -- (dir)components
-	    -- (dir)module
-	    -- router.js【路由文件】
-	  -- (dir)store【redux、mobx】
-	  -- (dir)style
-	    -- common.less / global.less
-	    -- (dir)mixin 样式方法
-	  -- (dir)util
-	  -- index.js / app.js
-	  -- index.html
-	-- (dir)typings
-	-- package.json
-	-- 等其他项目及配置文件（.editorconfig、eslintrc、.gitignore、typings.json 等等）
+	  |-- (dir)api【api 集中管理】
+	  |-- (dir)asset/static【静态资源存放（更推荐 cdn）】
+	  |-- (dir)components【全局通用基础组件存放】
+	  |-- (dir)config【环境配置参数，也可后端获取，前端有此配置能做很多黑科技。】
+	  |-- (dir)external【三方文件处理，当前目录的 index.js 处理完所有逻辑】
+	  |-- (dir)modules/pages/routes【此处按功能类别抽出页面级组件】
+	    |-- (dir)components
+	    |-- (dir)module
+	    |-- router.js【路由文件】
+	  |-- (dir)store【redux、mobx】
+	  |-- (dir)style
+	    |-- common.less / global.less
+	    |-- (dir)mixin 样式方法
+	  |-- (dir)util
+	  |-- index.js / app.js
+	  |-- index.html
+	|-- (dir)typings
+	|-- package.json
+	|-- 等其他项目及配置文件（.editorconfig、eslintrc、.gitignore、typings.json 等等）
 	```
 
 
