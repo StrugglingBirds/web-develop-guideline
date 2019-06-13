@@ -6,14 +6,14 @@
 3. 【强制】方法名、参数名、成员变量、局部变量使用 lowerCamelCase 风格，遵守驼峰形式。
 4. 【强制】常量命名统一使用全部大写，原本驼峰处（单词间隔处）使用下划线隔开，力求语义表达完整。
 5. 【强制】React 组件文件、对应 less、sass 文件以及外层的文件夹，统一使用 UpperCamelCase 风格，遵守驼峰形式。
-6. 【强制】如果当前组件是页面组件，最外层容器（div）中的 class 写成 ``组件名-container`` 格式，如当前页面组件为 ``Home``，则最外层样式为 ``home-container``。
+6. 【强制】如果当前组件是页面组件，最外层容器（div）中的 class 写成 ``组件名-container`` 格式，如当前页面组件为 ``Home``，则最外层样式为 ``home-container``，不要求一定是 ``container``，但是如果存在对 debug 和规避样式污染有百利无一弊。
 7. 【强制】如果当前组件是非页面组件，最外层容器（div）中的 class 写成 ``组件名-component`` 格式，如当前页面组件为 ``NavigationBar``，则最外层样式为 ``navigation-bar-component``。
 9. 【强制】全局样式统一添加某个固定前缀，如 `` global- ``，避免出现样式覆盖现象。
 10. 【强制】杜绝不规范、不通用的缩写。
 11. 【强制】英文命名确保英文拼写正确（可借助拼写检查插件）。
 12. 【推荐】非类文件的功能文件夹名称，统一全部使用小写，避免 git 在未设定相关参数时同步过程中，由于不同系统，而导致目录大小写区分不准确的问题。
 13. 【推荐】如果使用了设计模式，在文件名以及类名上体现出设计模式，如 RequestProxy，HumanFactory。
-14. 【推荐】如果使用专门文件定义了枚举对象或者常量对象，在文件命名及对象命名上予以体现。假设下面文件专门用来定义 StatusCode，则可将文件命名为 StatusCodeConstants，
+14. 【推荐】如果使用专门文件定义了枚举对象或者常量对象，在文件命名或对象命名上予以体现。假设下面文件专门用来定义 StatusCode，则可将文件命名为 StatusCodeConstants，
 	``` JavaScript
 	const StatusCodeConstants = {
 	  SUCCESS: 200,
@@ -99,7 +99,6 @@
 4. 【推荐】React 开发中，对于暂存值（逻辑处理中的中间变量，且不会影响页面渲染结果）不要放在 state 中，更不要使用 this.setState 来更改 state 中的暂存值；
 	
 
-
 ## 二、异常处理
 1. 【强制】产品异常时，异常信息必须能做到友好展示。
 2. 【强制】不用 try - catch 来做条件条件、流程控制，try-catch 相比于正常的流程控制更耗费性能，也效率更低。
@@ -111,54 +110,22 @@
 
 ## 三、数据打点
 1. 【强制】每个页面的进入都需要进行打点，方便获取产品的 pv、uv。如 window.onload、React 中的 componentDidMount、vue 的 mounted 中进行打点。
-2. 【推荐】条件允许情况下，用户所有的交互式操作，都需要进行打点（方便得到用户的漏斗模型、计算用户的流失率等）。
+2. 【推荐】条件允许情况下，用户的交互式操作，或点击热区的打点建议借助三方 sdk，避免前端项目中存在过多的打点逻辑。
 3. 【强制】打点内容力求简明、清晰，并且与以往打点内容互不冲突。
 
 
 ## 四、工程架构
 1. 【强制】每个项目都需要提供个性化配置文件，并在版本管理中 ignore 掉，以便能适应每个人的开发习惯，也避免版本同步时配置文件的互相覆盖（如 webpack 在有 webpack.default.js 基础上，搭配 webpack.local.js 文件）。
 2. 【强制】核心、私密数据不上传至 github 或者 svn 等版本管理工具，统一使用单独文件配置（如小程序中的 AppId、AppSecret）。
-3. 【强制】项目目录架构，允许使用不同的目录格式，但是整体架构力求清晰，以下模式仅供参考（有 dir 则代表当前是目录）
-	```
-	-- (dir)config【打包配置存放】
-	--|-- webpack.dev.config
-	  |-- webpack.prod.config
-	  |-- 等其他配置文件
-	-- (dir)dist/build
-	-- (dir)mock
-	-- (dir)node_modules
-	-- (dir)src【核心代码】
-	  |-- (dir)api【api 集中管理】
-	  |-- (dir)asset/static【静态资源存放（更推荐 cdn）】
-	  |-- (dir)components【全局通用基础组件存放】
-	  |-- (dir)config【环境配置参数，也可后端获取，前端有此配置能做很多黑科技。】
-	  |-- (dir)external【三方文件处理，当前目录的 index.js 处理完所有逻辑】
-	  |-- (dir)modules/pages/routes【此处按功能类别抽出页面级组件】
-	    |-- (dir)components
-	    |-- (dir)module
-	    |-- router.js【路由文件】
-	  |-- (dir)store【redux、mobx】
-	  |-- (dir)style
-	    |-- common.less / global.less
-	    |-- (dir)mixin 样式方法
-	  |-- (dir)util
-	  |-- index.js / app.js
-	  |-- index.html
-	|-- (dir)typings
-	|-- package.json
-	|-- 等其他项目及配置文件（.editorconfig、eslintrc、.gitignore、typings.json 等等）
-	```
+3. 【强制】项目目录架构，允许使用不同的目录格式，力求整体架构清晰。
+4. 【推荐】目录名称，单复数保证统一或者有明确区分度，而不是诸如 `` components `` 和 `` module `` 并存混用。
 
 
-
-
-
-
-
-
-
-
-
+## 五、三方组件
+1. 【推荐】项目采用 Vue 或者 React 框架，使用 Virtual DOM 机制的，避免再直接操作 DOM，如使用 jQuery。
+2. 【推荐】前端项目中需要用到工具方法的，如 lodash，moment。如果使用地方较少或功能较简单的，可先自己实现，如果使用地方较多，不得不引入的，一定要打包过程中进行配置优化，避免全包引入，这类包体积实在太大。（node 做服务端不影响）
+3. 【推荐】使用 antd 或类似 ui 组件包的时候，一定要避免全量组件或全量 css 文件引入。
+4. 【推荐】如果网络条件允许，可以适当引用三方组件的一些 cdn 链接，而不是直接将组件打包进项目。
 
 
 
